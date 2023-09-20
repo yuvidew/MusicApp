@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player with Timer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="music-player">
+        <h1>My Music Player</h1>
+        <audio id="audio-player" >
+            <source src="../Akhiyaan_Milavanga_-_Lyrical__Commando_3__Vidyut_Jammwal,_Adah_Sharma__Arijit_Singh_&_Sruthy_S(256k).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <span id="elapsed-time">0:00</span>
+        <button id="play-button">Play</button>
+        <button id="pause-button">Pause</button>
+        <ul id="playlist">
+            <li><a href="song1.mp3">Song 1</a></li>
+            <li><a href="song2.mp3">Song 2</a></li>
+            <!-- Add more songs -->
+        </ul>
+    </div>
+    <script>
+        // script.js
+const audioPlayer = document.getElementById('audio-player');
+const playButton = document.getElementById('play-button');
+const pauseButton = document.getElementById('pause-button');
+const elapsedTime = document.getElementById('elapsed-time');
+const playlist = document.getElementById('playlist');
+
+let isPlaying = false;
+let intervalId;
+
+// Add event listeners to the play and pause buttons
+playButton.addEventListener('click', function () {
+    audioPlayer.play();
+    isPlaying = true;
+    updateTimer();
+});
+
+pauseButton.addEventListener('click', function () {
+    audioPlayer.pause();
+    isPlaying = false;
+    clearInterval(intervalId);
+});
+
+// Add event listener to update the elapsed time
+audioPlayer.addEventListener('timeupdate', function () {
+    updateTimer();
+});
+
+// Function to update the elapsed time
+function updateTimer() {
+    if (isPlaying) {
+        const currentTime = audioPlayer.currentTime;
+        const minutes = Math.floor(currentTime / 60);
+        const seconds = Math.floor(currentTime % 60);
+        const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        elapsedTime.textContent = formattedTime;
+    }
+}
+
+// Add event listener to the playlist
+playlist.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (e.target.tagName === 'A') {
+        const songUrl = e.target.getAttribute('href');
+        audioPlayer.src = songUrl;
+        audioPlayer.play();
+        isPlaying = true;
+        updateTimer();
+    }
+});
+
+    </script>
+</body>
+</html>
