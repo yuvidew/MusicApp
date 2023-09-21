@@ -259,13 +259,8 @@
             thesingerheginf.textContent = musiclist[index].singer;
             theimg.src = songinglist[index].imgsrc;
             audioplayer.src = songinglist[index].song;
-            if(controicon.className === "fa-solid fa-play"){
-                controicon.className = "fa-solid fa-pause"
-                audioplayer.play()
-            }else{
-                controicon.className = "fa-solid fa-play"
-                audioplayer.pause()
-            }
+            controicon.className = "fa-solid fa-play"
+            audioplayer.pause()
         };
     </script>
 </body>
