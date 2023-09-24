@@ -425,6 +425,26 @@
             ctrlIcon.className = "fa-solid fa-pause"
             song.play()
         };
+
+        // #########################################chnagethesingusingbtn##############################
+
+        const controls = document.querySelectorAll(".controls div")
+        let count = 0
+        controls.forEach(btn =>{
+            btn.addEventListener("click", () =>{
+                if(btn.className === "backWordIcon"){
+                    if(count >0){
+                        count--
+                        theSongChange(count)
+                    }
+                }else if(btn.className === "forWordIcon"){
+                    if(count < songinglist.length ){
+                        count++
+                        theSongChange(count)
+                    }
+                }
+            })
+        })
 </script>
 </body>
 </html>
