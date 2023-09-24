@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://fontawesome.com/icons/list-music?f=classic&s=solid">
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/regular.min.css" integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA==" crossorigin="anonymous" referrerpolicy="no-referrer" /><script src="https://kit.fontawesome.com/f7fe29f0bc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap.css">
     <link rel="icon" href="https://image.pngaaa.com/154/299154-middle.png" type="image/png">
     <title>Music App</title>
     <style>
@@ -34,234 +35,372 @@
             cursor: pointer;
         }
         body{
-            background: #244d4d;
+            background: #091824;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 90vh;
-        }
-        section{
-            width: 35rem;
-            position: relative;
-            overflow: hidden;
-            background-color: #ffff;
-            display: flex;
-            padding: .5rem;
-            border-radius: .3rem;
-            /* border-radius: .5rem; */
-            box-shadow: 0 1.25em 1.8em rgba(8,21,65,0.25);
+            color: aliceblue;
         }
 
-        .imgbox{
-            margin: auto;
-            width: 100%;
-            height: 39rem;
-            position: relative;
-            border-radius: .3rem;
-            overflow: hidden;
+        html::-webkit-scrollbar {
+            width: 1rem;
+            border-radius: 50rem;
         }
-        .imgbox img{
+
+        html::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        html::-webkit-scrollbar-thumb {
+            background: #e60939;
+        }
+
+        header{
+            width: 100%;
+        }
+
+        .heading img{
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .searchbox{
+            width: 25rem;
+            margin-right: 1rem;
+            padding: 0rem 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: #464647;
+            border-radius: 50rem;
+        }
+
+        .searchbox input::placeholder{
+            color: aliceblue;
+        }
+
+        .searchbox i{
+            font-size: 1.3rem;
+            color: #e60939;
+        }
+
+        .searchbox input{
+            caret-color: #e60939;
+            font-size: 1.4rem;
+            background: transparent;
+            height: 100%;
+            width: 100%;
+        }
+
+        .theheading span{
+            color: #e60939;
+        }
+
+
+        .songcont{
+            width: 100%;
+            height: 55rem;
+            position: relative;
+        }
+
+        .songcont img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* transform: scale(0.2); */
+        }
+
+        .songcont .textbox{
+            width: 100%;
+            height: 100%;
+            padding: 5rem;
+            position: absolute;
+            top: 0;
+            background: #4a4b4b5f;
+        }
+
+        .songcont .textbox .thetext{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.5rem;
+            height: 80%;
+            width: 100%;
+        }
+
+        .songcont .textbox .thetext h1{
+            font-size: 8rem;
+        }
+
+        .songcont .textbox .thetext p{
+            font-size: 1.8rem;
+            color: #e60939;
+        }
+
+        .songcont .textbox .songcontroler{
+            width: 70%;
+            height: 28%;
+            display: flex;
+            gap: 2rem;
+            flex-direction: column;
+            justify-content: end;
+        }
+
+        #progresBar{
+            -webkit-appearance: none;
+            width: 100%;
+            height: .7rem;
+            background: #e60939;
+            border-radius: 50rem;
+            cursor: pointer;
+        }
+        
+        #progresBar::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            background: #464647;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50rem;
+        }
+
+        .controls{
+            width: 30%;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .controls .backWordIcon,
+        .controls .forWordIcon{
+            font-size: 2rem;
+        }
+        .controls .playIcon{
+            font-size: 2.5rem ;
+        }
+
+        .controls i{
+            cursor: pointer;
+        }
+
+        .controlvaluem{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .controlvaluem .valme{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .controlvaluem .valme i{
+            font-size: 1.5rem;
+        }
+
+        .controlvaluem .valme input{
+            accent-color: #04d194;
+            background-color:aliceblue ;
+            width: 100%;
+            height: .7rem;
+            border-radius: 50rem;
+            cursor: pointer;
+        }
+
+        .theNextMusic{
+            height: 10rem;
+            cursor: pointer;
+        }
+
+        .theNextMusic .imgBox{
+            width: 30%;
+            height: 100%;
+        }
+
+
+        .theNextMusic .imgBox img{
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .thecontroler{
-            position: absolute;
-            display: flex;
-            gap: 1rem;
-            align-items: end;
-            bottom: 0;
-            width: 100%;
+        .theNextMusic .textbox{
             height: 100%;
-            color: aliceblue;
+            width: 70%;
             padding: 1rem;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.0),rgba(0,0,0,0.9))
-        }
-
-        .thetext{
-            width: 100%;
             display: flex;
-            gap: 2rem;
-            align-items: center;
+            align-items: left;
+            justify-content: center;
+            flex-direction: column;
         }
 
-        .imgcon{
-            width: 100%;
-            height: 100%;
-        }
-        
-        .thetext button{
-            background: transparent;
-            color: aliceblue;
-            font-size: 2rem;
+        @media (min-width : 350px){
+        html{
+            font-size: 50%;
         }
 
-        .textbox{
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .first,
-        .last{
-            width: 10%;
-        }
-
-        .themainlist{
-            border-radius: 3rem 3rem;
-            left: -.1rem;
-            top: 100rem;
-            list-style: none;
-            position: absolute;
-            width: 100%;
-            height: 50rem;
-            padding: 1rem 0;
-            transition: all .3s ease-in-out;
-            background-color: aliceblue;
-        }
-
-        
-
-        .thelist{
-            background-color: aliceblue;
-            overflow-y: scroll;
-            list-style: none;
-
-            width: 90%;
-            height: 50%;
-            margin: auto;
-        }
-
-        .thelist::-webkit-scrollbar{
-            width: 0;
-        }
-
-        li{
-            padding: 1rem .5rem;
-            border-bottom:.1px solid #d9dcdc ;
+        .theNextMusic{
+            height: 15rem;
             cursor: pointer;
         }
 
-        li:hover{
-            background: #d9dcdc;
+        .songcont .textbox .songcontroler{
+            width: 100%;
+        }
+        
+        .theNextMusic .textbox h3{
+            font-size: 3rem;
         }
 
-        .Mlistheading{
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 90%;
-            margin: auto;
+        .theNextMusic .textbox p{
+            font-size: 1.6rem;
         }
 
-        .Mlistheading button{
-            background: transparent;
         }
     </style>
 </head>
 <body>
-    <section>
-        <div class="imgbox">
-            <div class="imgcon">
-                <img id="theimg" src="https://i1.sndcdn.com/artworks-000162897425-k8h6e5-t500x500.jpg" alt="">
-            </div>
-            <div class="thecontroler">
-                <div class="thetext">
-                    <audio id="audio-player" loop>
-                        <source src="seeYouAgain.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <button class="first" id="controletbtn"><i class="fa-solid fa-play"></i></button>
-                    <div class="textbox">
-                        <h1 id="thesongheginf">See You Again</h1>
-                        <p id="thesingerheginf">Song by Wiz Khalifa</p>
+    <header>
+        <div class="container pt-3 pb-3 mt-5">
+            <div class="row">
+                <div class="col-6">
+                    <div class="heading d-flex align-content-center justify-content-start gap-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3844/3844724.png" alt="">
+                        <h1 class="theheading">Music <span>Web</span></h1>
                     </div>
-                    <button class="last" onclick="showhidelist(10)"><i class="fa fa-list" aria-hidden="true"></i></button>
                 </div>
-            </div>
-        </div>
-        <div class="themainlist">
-            <div class="Mlistheading">
-                <button onclick="showhidelist(100)"><i class="fa fa-list" aria-hidden="true"></i></button>
-                <h1>Music Playlist</h1>
-                <button><i class="fa-regular fa-heart"></i></button>
-            </div>
-            <ul class="thelist">
                 
-            </ul>
+            </div>
+            <section class="row mt-5">
+                <div class="col-12" style="padding: 0;box-shadow: 0 0 4px rgba(189, 189, 191, 0.25);border-radius: 1rem; overflow: hidden;">
+                    <div class="songcont">
+                        <img class="theimg" src="https://www.billboard.com/wp-content/uploads/media/Charlie-Puth-press-2017-cr-Catie-Laffoon-billboard-1548.jpg?w=942&h=623&crop=1" alt="">
+                        <div class="textbox">
+                            <div class="thetext">
+                                <h1 class="thesongheginf ">See You Again</h1>
+                                <p class="thesingerheginf">Song by Wiz Khalifa</p>
+                            </div>
+                            <div class="songcontroler">
+                                <audio id="audio-player" controls loop style="display: none;">
+                                    <source src="seeYouAgain.mp3" type="audio/mpeg">
+                                </audio>
+                                <input type="range" value="0" id="progresBar">
+                                <div class="controlvaluem">
+                                    <div class="controls">
+                                        <div class="backWordIcon"><i class="fa-solid fa-backward"></i></div>
+                                        <div class="playIcon" onclick="playPause()"><i class="fa-solid fa-play" id="ctrlIcon"></i></div>
+                                        <div class="forWordIcon"><i class="fa-solid fa-forward"></i></div>
+                                    </div>
+                                    <div class="valme">
+                                        <i class="fa-solid fa-volume-high"></i>
+                                        <input type="range" value="0" class="theVolume">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <h1 class="col-12 fa-2.5x mt-5 mb-3">Top Music <span style="color: #e60939;">List</span></h1>
+            <section class="row theSlider mt-4">
+            </section>
         </div>
-    </section>
-    <script>
-        const audioplayer = document.getElementById("audio-player")
-        const controletbtn = document.getElementById("controletbtn")
-        const controicon = document.querySelector(".fa-solid")
-        const thelist = document.querySelector(".thelist")
-        const thesonglist = document.querySelectorAll(".thelist li")
-        const themainlist = document.querySelector(".themainlist")
-        controletbtn.addEventListener("click", () =>{
-            if(controicon.className === "fa-solid fa-play"){
-                controicon.className = "fa-solid fa-pause"
-                audioplayer.play()
-            }else{
-                controicon.className = "fa-solid fa-play"
-                audioplayer.pause()
-            }
-        })
+    </div>
+</header>
 
-        let musiclist = [
-            {song : "See You Again", singer : "Song by Wiz Khalifa"},
-            {song : "The Nights", singer : "Song by Avicii"},
-            {song : "Closer", singer : "Song by The Chainsmokers"},
-            {song : "Shape of You", singer : "Song by Ed Sheeran"},
-            {song : "Perfect", singer : "Song by Ed Sheeran"},
-            {song : "Shounenki", singer : "Song by Tetsuya Takeda"},
-            {song : "Love Is Gone", singer : "Song by Dylan Mathew and SLANDER"},
-            {song : "Despacito", singer : "Despacito"},
-        ]
+<script>
+
+    // ###########################this is for the music controler ################################
+    
+        const progres = document.getElementById("progresBar")
+        const song = document.getElementById("audio-player")
+        const ctrlIcon = document.getElementById("ctrlIcon")
+        const theVolume = document.querySelector(".theVolume")
+
+        theVolume.max = 100
+
+        song.onloadedmetadata  = function(){
+            progres.max = song.duration;
+            progres.value = song.currentTime;
+        }
+
+        window.addEventListener("load", () =>{song.pause()})
+
+        const playPause = () =>{
+            if(ctrlIcon.className === "fa-solid fa-play"){
+                ctrlIcon.className = "fa-solid fa-pause"
+                song.play()
+            }else{
+                ctrlIcon.className = "fa-solid fa-play"
+                song.pause()
+            }
+        }
+
+        if(song.play()){
+            setInterval(() =>{
+                progres.value = song.currentTime
+            },500)
+        }
+
+        progres.onchange = () =>{
+            song.play()
+            song.currentTime = progres.value
+            ctrlIcon.classList.remove("fa-solid fa-play")
+            ctrlIcon.classList.add("fa-solid fa-pause")
+        }
+
+        theVolume.addEventListener("change" , (e) =>{
+            let thevaluemRange = (e.target.value)/100
+            song.volume = thevaluemRange
+        }) 
+
+        // ##########################This is for the music list###########################
 
         let songinglist = [
-            {imgsrc : "https://i1.sndcdn.com/artworks-000162897425-k8h6e5-t500x500.jpg", song : "seeYouAgain.mp3"},
-            {imgsrc : "https://i.scdn.co/image/ab67616d0000b2730ae4f4d42e4a09f3a29f64ad", song : "The_Nights.mp3"},
-            {imgsrc : "https://images.squarespace-cdn.com/content/v1/58ab2fce20099e7487a18b2a/1488317107594-HP2TZF26U5IPH49MTCG8/image-asset.jpeg", song : "Closer.mp3"},
-            {imgsrc : "https://upload.wikimedia.org/wikipedia/en/b/b4/Shape_Of_You_%28Official_Single_Cover%29_by_Ed_Sheeran.png", song : "Shape_of_You.mp3"},
-            {imgsrc : "https://i.ytimg.com/vi/kPhpHvnnn0Q/hqdefault.jpg", song : "Ed_Sheeran.mp3"},
-            {imgsrc : "https://s1.dmcdn.net/v/T2PXa1Wp6EIit2Y7a/x720", song : "Shounen_Ki.mp3"},
-            {imgsrc : "https://i.ytimg.com/vi/jb-i_ARlumQ/maxresdefault.jpg", song : "Love_is_gonw.mp3"},
-            {imgsrc : "https://upload.wikimedia.org/wikipedia/en/c/c8/Luis_Fonsi_Feat._Daddy_Yankee_-_Despacito_%28Official_Single_Cover%29.png", song : "Luis_Fonsi.mp3"},
+            {imgsrc : "https://www.billboard.com/wp-content/uploads/media/Charlie-Puth-press-2017-cr-Catie-Laffoon-billboard-1548.jpg?w=942&h=623&crop=1", theSong : "See You Again", songName : "seeYouAgain.mp3" , singer : "Song by Wiz Khalifa"},
+            {imgsrc : "https://i.scdn.co/image/ab67616d0000b2730ae4f4d42e4a09f3a29f64ad", theSong : "The Nights", songName : "The_Nights.mp3", singer : "Song by Avicii"},
+            {imgsrc : "https://images.squarespace-cdn.com/content/v1/58ab2fce20099e7487a18b2a/1488317107594-HP2TZF26U5IPH49MTCG8/image-asset.jpeg", theSong : "Closer", songName : "Closer.mp3", singer : "Song by The Chainsmokers"},
+            {imgsrc : "https://upload.wikimedia.org/wikipedia/en/b/b4/Shape_Of_You_%28Official_Single_Cover%29_by_Ed_Sheeran.png", theSong : "Shape of You", songName : "Shape_of_You.mp3" , singer : "Song by Ed Sheeran"},
+            {imgsrc : "https://i.ytimg.com/vi/kPhpHvnnn0Q/hqdefault.jpg", theSong : "Perfect", songName : "Ed_Sheeran.mp3", singer : "Song by Ed Sheeran"},
+            {imgsrc : "https://s1.dmcdn.net/v/T2PXa1Wp6EIit2Y7a/x720", theSong : "Shounenki", songName : "Shounen_Ki.mp3" , singer : "Song by Tetsuya Takeda"},
+            {imgsrc : "https://i.ytimg.com/vi/jb-i_ARlumQ/maxresdefault.jpg", theSong : "Love Is Gone", songName : "Love_is_gonw.mp3" , singer : "Song by Dylan Mathew and SLANDER"},
+            {imgsrc : "https://upload.wikimedia.org/wikipedia/en/c/c8/Luis_Fonsi_Feat._Daddy_Yankee_-_Despacito_%28Official_Single_Cover%29.png", theSong : "Despacito", songName : "Luis_Fonsi.mp3" , singer : "Despacito"},
         ]
 
 
-        let themusiclist = musiclist.map((ele, index) =>{
-            return(`
-                <li onclick = "thesong(${index})">
-                    <div class = "thename">
-                        <h1 style="color: #275f5f;">${ele.song}</h1>
+        const theSlider = document.querySelector(".theSlider");
+
+        let theMusiccont = songinglist.map((ele, index) =>(
+            `<div class= "col-lg-4 col-md-6 col-sm-12" onclick="theSongChange(${index})">
+                <div class = "theNextMusic d-flex align-content-center mb-4" style = "box-shadow: 0 0 4px rgba(189, 189, 191, 0.25)">
+                    <div class= "imgBox">
+                        <img src = ${ele.imgsrc} >
+                    </div>
+                    <div class = "textbox">
+                        <h3>${ele.theSong}</h3>
                         <p>${ele.singer}</p>
                     </div>
-                </li>`)
-        })
+                </div>
+            </div>`
+        ))
 
-        thelist.innerHTML = themusiclist.join("")
+        theSlider.innerHTML = theMusiccont.join("")
 
-        const showhidelist = (index) =>{
-            themainlist.style.top = `${index}rem`
+        const theimg = document.querySelector(".theimg")
+        const thesongheginf = document.querySelector(".thesongheginf")
+        const thesingerheginf = document.querySelector(".thesingerheginf")
+
+        const theSongChange = (index) => {
+            theimg.src = songinglist[index].imgsrc
+            thesongheginf.textContent = songinglist[index].theSong
+            thesingerheginf.textContent = songinglist[index].singer
+            song.src = songinglist[index].songName
+            ctrlIcon.className = "fa-solid fa-pause"
+            song.play()
         };
-
-        let thesongheginf = document.getElementById("thesongheginf");
-        let thesingerheginf = document.getElementById("thesingerheginf");
-        let theimg = document.getElementById("theimg")
-
-        const thesong = (index) =>{
-            thesongheginf.textContent = musiclist[index].song;
-            thesingerheginf.textContent = musiclist[index].singer;
-            theimg.src = songinglist[index].imgsrc;
-            audioplayer.src = songinglist[index].song;
-            controicon.className = "fa-solid fa-play"
-            audioplayer.pause()
-        };
-    </script>
+</script>
 </body>
 </html>
