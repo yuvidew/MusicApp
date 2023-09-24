@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="https://fontawesome.com/icons/list-music?f=classic&s=solid">
     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/regular.min.css" integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA==" crossorigin="anonymous" referrerpolicy="no-referrer" /><script src="https://kit.fontawesome.com/f7fe29f0bc.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="../bootstrap-5.3.2-dist/css/bootstrap.css"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3844/3844724.png" type="image/png">
+    <link rel="icon" href="https://image.pngaaa.com/154/299154-middle.png" type="image/png">
     <title>Music App</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
@@ -236,7 +237,18 @@
             justify-content: center;
             flex-direction: column;
         }
+        
+        .footer{
+            padding: 1rem 0;
+            padding-bottom: 2rem;
+            font-size: 1.4rem;
+            width: 100%;
+            text-align: center;
+        }
 
+        .footer span{
+            color: #e60939;
+        }
         .theNextMusic .textbox h3{
             text-transform: capitalize;
         }
@@ -264,6 +276,7 @@
         }
 
         }
+
     </style>
 </head>
 <body>
@@ -312,6 +325,11 @@
             <h1 class="col-12 fa-2.5x mt-5 mb-3">Top Music <span style="color: #e60939;">List</span></h1>
             <section class="row theSlider mt-4">
             </section>
+        </div>
+        <div class="col-12 pb-3">
+            <div class="footer">
+                <p>Created By <span> Mr. yuvi dew... </span> | All Right Reserved!</p>
+            </div>
         </div>
     </div>
 </header>
@@ -381,7 +399,7 @@
 
         let theMusiccont = songinglist.map((ele, index) =>(
             `<div class= "col-lg-4 col-md-6 col-sm-12" onclick="theSongChange(${index})">
-                <div class = "theNextMusic d-flex align-content-center mb-4" style = "box-shadow: 0 0 4px rgba(189, 189, 191, 0.25)">
+                <div class = "theNextMusic d-flex align-content-center mb-4 p-2" style = "box-shadow: 0 0 4px rgba(189, 189, 191, 0.25)">
                     <div class= "imgBox">
                         <img src = ${ele.imgsrc} >
                     </div>
